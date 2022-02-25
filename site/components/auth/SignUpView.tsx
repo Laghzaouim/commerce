@@ -40,8 +40,14 @@ const SignUpView: FC<Props> = () => {
       })
       setLoading(false)
       closeModal()
-    } catch ({ errors }) {
-      setMessage(errors[0].message)
+    } catch ({ errors  }) {
+
+      let errorMessage = "Failed to do something exceptional";
+      if (errors instanceof Array) {
+        errorMessage = errors[0].message
+        setMessage(errorMessage)
+       }
+    
       setLoading(false)
     }
   }
