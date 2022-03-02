@@ -27,11 +27,6 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
       <Container className="max-w-none w-full" clean>
         <div className={cn(s.root, 'fit')}>
           <div className={cn(s.main, 'fit')}>
-            <ProductTag
-              name={product.name}
-              price={`${price} ${product.price?.currencyCode}`}
-              fontSize={32}
-            />
             <div className={s.sliderContainer}>
               <ProductSlider key={product.id}>
                 {product.images.map((image, i) => (
@@ -51,12 +46,18 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
             </div>
             {process.env.COMMERCE_WISHLIST_ENABLED && (
               <WishlistButton
-                className={s.wishlistButton}
-                productId={product.id}
-                variant={product.variants[0]}
+              className={s.wishlistButton}
+              productId={product.id}
+              variant={product.variants[0]}
               />
-            )}
+              )}
           </div>
+          
+          <ProductTag
+            name={product.name}
+            price={`${price} ${product.price?.currencyCode}`}
+            fontSize={32}
+          />
 
           <ProductSidebar
             key={product.id}
@@ -66,27 +67,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
         </div>
         <hr className="mt-7 border-accent-2" />
         <section className="py-12 px-6 mb-10">
-          <Text variant="sectionHeading">Related Products</Text>
-          <div className={s.relatedProductsGrid}>
-            {relatedProducts.map((p) => (
-              <div
-                key={p.path}
-                className="animated fadeIn bg-accent-0 border border-accent-2"
-              >
-                <ProductCard
-                  noNameTag
-                  product={p}
-                  key={p.path}
-                  variant="simple"
-                  className="animated fadeIn"
-                  imgProps={{
-                    width: 300,
-                    height: 300,
-                  }}
-                />
-              </div>
-            ))}
-          </div>
+          {/* TODO: badge and benefits */}
         </section>
       </Container>
       <SEO
