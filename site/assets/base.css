@@ -23,8 +23,8 @@
 
   --magenta: #eb367f;
 
-  --violet: #7928ca;
-  --violet-dark: #4c2889;
+  --violet: #1D2360;
+  --violet-dark: #090b22;
 
   --accent-0: #fff;
   --accent-1: #fafafa;
@@ -35,13 +35,13 @@
   --accent-6: #444444;
   --accent-7: #333333;
   --accent-8: #111111;
-  --accent-9: #000;
+  --accent-9: #090b22;
 
   --font-sans: -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', sans-serif;
 }
 
-[data-theme='dark'] {
+[data-theme='light'] {
   --primary: #000000;
   --primary-2: #111;
   --secondary: #ffffff;
