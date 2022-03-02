@@ -10,6 +10,7 @@ import {
   SelectedOptions,
 } from '../helpers'
 import ProductTag from '../ProductTag'
+import Amazon from '@components/icons/Amazon'
 
 interface ProductSidebarProps {
   product: Product
@@ -17,7 +18,11 @@ interface ProductSidebarProps {
   price: string
 }
 
-const ProductSidebar: FC<ProductSidebarProps> = ({ product, className, price }) => {
+const ProductSidebar: FC<ProductSidebarProps> = ({
+  product,
+  className,
+  price,
+}) => {
   const addItem = useAddItem()
   const { openSidebar } = useUI()
   const [loading, setLoading] = useState(false)
@@ -27,61 +32,49 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className, price }) 
     selectDefaultOptionFromProduct(product, setSelectedOptions)
   }, [product])
 
-  const variant = getProductVariant(product, selectedOptions)
-  const addToCart = async () => {
-    setLoading(true)
-    try {
-      await addItem({
-        productId: String(product.id),
-        variantId: String(variant ? variant.id : product.variants[0]?.id),
-      })
-      openSidebar()
-      setLoading(false)
-    } catch (err) {
-      setLoading(false)
-    }
+  const handleClick = () => {
+    window.open('https://www.amazon.com')
   }
 
   return (
     <div className={className}>
-        <ProductTag
-          name={product.name}
-          price={`${price} ${product.price?.currencyCode}`}
-          fontSize={32}
-        />
+      <ProductTag
+        name={product.name}
+        price={`${price} ${product.price?.currencyCode}`}
+        fontSize={32}
+      />
       <div className="flex flex-row justify-between items-center">
         <Rating value={4} />
         <div className="text-accent-6 pr-1 font-medium text-sm">36 reviews</div>
       </div>
       <div className="pb-8">
-        {process.env.COMMERCE_CART_ENABLED && (
-          <Button
-            aria-label="Add to Cart"
-            type="button"
-            className={s.button}
-            onClick={addToCart}
-            loading={loading}
-            disabled={variant?.availableForSale === false}
-          >
-            {variant?.availableForSale === false
-              ? 'Not Available'
-              : 'Add To Cart'}
-          </Button>
-        )}
+        <Button
+          aria-label="Order Now At Amazon"
+          type="button"
+          className={s.button}
+          href="https://www.amazon.com"
+          onClick={handleClick}
+        >
+          Order Now At
+          <Amazon />
+        </Button>
       </div>
       <Text
         className="break-words w-full max-w-xl"
         html={product.descriptionHtml || product.description}
       />
       <div className="mt-6">
-        <Collapse title="Care">
+        <Collapse title="Why only on amazon?">
           This is a limited edition production run. Printing starts when the
           drop ends.
         </Collapse>
-        <Collapse title="Details">
-          This is a limited edition production run. Printing starts when the
-          drop ends. Reminder: Bad Boys For Life. Shipping may take 10+ days due
-          to COVID-19.
+        <Collapse title="Happiness Guaranteed">
+          Our number one priority here at Bebey is your and your baby's
+          happiness. This means we stand by our product 100%, no matter what, no
+          questions asked, no holds barred, no ifs, no buts. If you have a
+          problem, we will solve it. Refund it. Send you a new product. Whatever
+          it takes. Just reach out to our Customer Happiness Team. We're here
+          for you. Happiness. Guaranteed.
         </Collapse>
       </div>
     </div>

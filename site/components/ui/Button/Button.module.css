@@ -3,7 +3,7 @@
   px-10 py-5 leading-6 transition ease-in-out duration-150
   shadow-sm text-center justify-center uppercase
   border border-transparent items-center text-sm font-semibold
-  tracking-wide;
+  tracking-wide rounded-xl;
   max-height: 64px;
 }
 
@@ -37,6 +37,15 @@
 
 .naked {
   @apply bg-transparent font-semibold border-none shadow-none outline-none py-0 px-0;
+}
+
+.amazon {
+  background-color: #FF9900
+}
+
+.amazon:hover {
+  background-color: #c27400
+
 }
 
 .naked:hover,

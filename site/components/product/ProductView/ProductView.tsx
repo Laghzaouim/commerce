@@ -10,6 +10,7 @@ import { Container, Text } from '@components/ui'
 import { SEO } from '@components/common'
 import ProductSidebar from '../ProductSidebar'
 import ProductTag from '../ProductTag'
+import Badges from '@components/ui/Badges'
 interface ProductViewProps {
   product: Product
   relatedProducts: Product[]
@@ -53,9 +54,9 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
           />
         </div>
 
-        <section className="py-12 px-6 mb-10">
-          {/* TODO: badge and benefits */}
-        </section>
+        {/* <section className="py-12 px-6 mb-10">
+          <Badges/>
+        </section> */}
       </Container>
       <SEO
         title={product.name}
