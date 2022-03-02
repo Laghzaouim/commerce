@@ -43,29 +43,16 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
                   </div>
                 ))}
               </ProductSlider>
-            </div>
-            {process.env.COMMERCE_WISHLIST_ENABLED && (
-              <WishlistButton
-              className={s.wishlistButton}
-              productId={product.id}
-              variant={product.variants[0]}
-              />
-              )}
+            </div> 
           </div>
-          
-          <ProductTag
-            name={product.name}
-            price={`${price} ${product.price?.currencyCode}`}
-            fontSize={32}
-          />
-
           <ProductSidebar
             key={product.id}
             product={product}
+            price={price}
             className={s.sidebar}
           />
         </div>
-        <hr className="mt-7 border-accent-2" />
+
         <section className="py-12 px-6 mb-10">
           {/* TODO: badge and benefits */}
         </section>

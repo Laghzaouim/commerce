@@ -9,13 +9,15 @@ import {
   selectDefaultOptionFromProduct,
   SelectedOptions,
 } from '../helpers'
+import ProductTag from '../ProductTag'
 
 interface ProductSidebarProps {
   product: Product
   className?: string
+  price: string
 }
 
-const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
+const ProductSidebar: FC<ProductSidebarProps> = ({ product, className, price }) => {
   const addItem = useAddItem()
   const { openSidebar } = useUI()
   const [loading, setLoading] = useState(false)
@@ -42,6 +44,11 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
 
   return (
     <div className={className}>
+        <ProductTag
+          name={product.name}
+          price={`${price} ${product.price?.currencyCode}`}
+          fontSize={32}
+        />
       <div className="flex flex-row justify-between items-center">
         <Rating value={4} />
         <div className="text-accent-6 pr-1 font-medium text-sm">36 reviews</div>

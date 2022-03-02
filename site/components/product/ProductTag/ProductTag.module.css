@@ -10,7 +10,7 @@
 }
 
 .root .name span {
-  @apply py-4 pl-6 bg-primary text-primary font-bold;
+  @apply py-4 bg-primary text-primary font-bold;
   min-height: 70px;
   font-size: inherit;
   letter-spacing: inherit;
@@ -24,6 +24,6 @@
 }
 
 .root .price {
-  @apply pt-2 px-6 pb-4 text-sm bg-primary text-accent-9
+  @apply pt-2 pb-4 text-sm bg-primary text-accent-9
   font-semibold inline-block tracking-wide;
 }
