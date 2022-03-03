@@ -127,7 +127,7 @@ const Layout: FC<Props> = ({
     <CommerceProvider locale={locale}>
       <div className={cn(s.root)}>
         <Navbar links={navBarlinks} />
-        <main className="fit">{children}</main>
+        <main className="fit flex flex-col">{children}</main>
         <Footer pages={pageProps.pages} />
         <ModalUI />
         <CheckoutProvider>

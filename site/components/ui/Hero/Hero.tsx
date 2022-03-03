@@ -17,7 +17,7 @@ const Hero: FC<HeroProps> = ({ headline, description }) => {
   }
 
   return (
-    <div className="bg-accent-9 border-b border-t border-accent-2 h-96 lg:h-screen bg-cover">
+    <div className="bg-accent-9 border-b border-t border-accent-2 h-96 lg:h-screen bg-cover bg-center flex-grow">
       <Container className="h-full">
         <div className={s.root}>
           <div>
@@ -28,14 +28,12 @@ const Hero: FC<HeroProps> = ({ headline, description }) => {
             <Link href="/">
               <Button
                 className="flex items-center mt-8"
-                aria-label="Order Now At Amazon"
+                aria-label="Shop Now"
                 type="button"
-                href="https://www.amazon.com"
+                href="/"
                 onClick={handleClick}
-                
               >
-                Order Now At
-                <Amazon />
+                Shop Now
               </Button>
             </Link>
           </div>

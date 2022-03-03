@@ -45,9 +45,9 @@ export default function Home({
         headline="Cozy Sleeping Cover"
         description="So your baby can sleep well"
       />
-      <Container className="mt-6">
-        <Badges />
-      </Container>
+<div className=' my-8 mx-4'>
+      <Badges />
+      </div>
     </>
   )
 }
