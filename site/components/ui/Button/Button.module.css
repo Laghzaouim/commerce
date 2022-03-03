@@ -32,7 +32,7 @@
 }
 
 .ghost:hover {
-  @apply border-accent-9 bg-accent-9 text-accent-0;
+  @apply bg-accent-2;
 }
 
 .naked {
