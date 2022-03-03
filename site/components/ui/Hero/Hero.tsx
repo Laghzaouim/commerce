@@ -17,12 +17,12 @@ const Hero: FC<HeroProps> = ({ headline, description }) => {
   }
 
   return (
-    <div className="bg-accent-9 border-b border-t border-accent-2 h-96 lg:h-screen">
+    <div className="bg-accent-9 border-b border-t border-accent-2 h-96 lg:h-screen bg-cover">
       <Container className="h-full">
         <div className={s.root}>
           <div>
             <h2 className={s.title}>{headline}</h2>
-            {/* <p className={s.description}>{description}</p> */}
+            <p className={s.description}>{description}</p>
           </div>
           <div className={s.button}>
             <Link href="/">
@@ -32,10 +32,10 @@ const Hero: FC<HeroProps> = ({ headline, description }) => {
                 type="button"
                 href="https://www.amazon.com"
                 onClick={handleClick}
-                variant="ghost"
+                
               >
                 Order Now At
-                <Amazon fill="#000" />
+                <Amazon />
               </Button>
             </Link>
           </div>

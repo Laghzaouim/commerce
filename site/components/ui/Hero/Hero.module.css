@@ -3,11 +3,11 @@
 }
 
 .title {
-  @apply text-accent-0 font-extrabold text-4xl leading-none tracking-tight text-center;
+  @apply font-extrabold text-4xl leading-none tracking-tight text-center bg-white bg-opacity-40;
 }
 
 .description {
-  @apply mt-4 text-xl leading-8 text-accent-2 mb-1 text-center;
+  @apply mt-4 text-xl leading-8 mb-1 text-center bg-white bg-opacity-40;
 }
 
 .button {

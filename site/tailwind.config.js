@@ -53,6 +53,9 @@ module.exports = {
       scale: {
         120: '1.2',
       },
+      backgroundImage: {
+        'cover': "url('/cover.jpg')",
+      }
     },
   },
 }
