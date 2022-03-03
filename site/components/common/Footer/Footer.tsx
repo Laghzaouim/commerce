@@ -4,10 +4,12 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import type { Page } from '@commerce/types/page'
 import getSlug from '@lib/get-slug'
-import { Github, Vercel } from '@components/icons'
 import { Logo, Container } from '@components/ui'
 import { I18nWidget } from '@components/common'
 import s from './Footer.module.css'
+import Facebook from '@components/icons/Facebook'
+import Instagram from '@components/icons/Instagram'
+import Pinterest from '@components/icons/Pinterest'
 
 interface Props {
   className?: string
@@ -20,11 +22,28 @@ const links = [
     name: 'Home',
     url: '/',
   },
+  {
+    name: 'Privacy Policy ',
+    url: '/',
+  },
+  {
+    name: 'Refund Policy ',
+    url: '/',
+  },
+  {
+    name: 'Terms of Service',
+    url: '/',
+  },
+  {
+    name: 'Contact',
+    url: '/',
+  },
 ]
 
 const Footer: FC<Props> = ({ className, pages }) => {
   const { sitePages } = usePages(pages)
   const rootClassName = cn(s.root, className)
+  const fullYear = new Date().getFullYear
 
   return (
     <footer className={rootClassName}>
@@ -33,16 +52,15 @@ const Footer: FC<Props> = ({ className, pages }) => {
           <div className="col-span-1 lg:col-span-2">
             <Link href="/">
               <a className="flex flex-initial items-center font-bold md:mr-24">
-                <span className="rounded-full border border-accent-6 mr-2">
+                <span className="mr-2">
                   <Logo />
                 </span>
-                <span>ACME</span>
               </a>
             </Link>
           </div>
           <div className="col-span-1 lg:col-span-8">
             <div className="grid md:grid-rows-4 md:grid-cols-3 md:grid-flow-col">
-              {[...links, ...sitePages].map((page) => (
+              {[...links].map((page) => (
                 <span key={page.url} className="py-3 md:py-0 md:pb-4">
                   <Link href={page.url!}>
                     <a className="text-accent-9 hover:text-accent-6 transition ease-in-out duration-150">
@@ -58,32 +76,33 @@ const Footer: FC<Props> = ({ className, pages }) => {
               <a
                 className={s.link}
                 aria-label="Github Repository"
-                href="https://github.com/vercel/commerce"
+                href="https://facebook.com"
               >
-                <Github />
+                <Facebook />
               </a>
-              <I18nWidget />
+              <a
+                className={s.link}
+                aria-label="Github Repository"
+                href="https://instagram.com"
+              >
+                <Instagram />
+              </a>
+              <a
+                className={s.link}
+                aria-label="Github Repository"
+                href="https://pinterest.com"
+              >
+                <Pinterest />
+              </a>
+              {/* <I18nWidget /> */}
             </div>
           </div>
         </div>
         <div className="pt-6 pb-10 flex flex-col md:flex-row justify-between items-center space-y-4 text-accent-6 text-sm">
           <div>
-            <span>&copy; 2020 ACME, Inc. All rights reserved.</span>
-          </div>
-          <div className="flex items-center text-primary text-sm">
-            <span className="text-primary">Created by</span>
-            <a
-              rel="noopener noreferrer"
-              href="https://vercel.com"
-              aria-label="Vercel.com Link"
-              target="_blank"
-              className="text-primary"
-            >
-              <Vercel
-                className="inline-block h-6 ml-3 text-primary"
-                alt="Vercel.com Logo"
-              />
-            </a>
+            <span>
+              &copy; {new Date().getFullYear()} Bebey, Inc. All rights reserved.
+            </span>
           </div>
         </div>
       </Container>

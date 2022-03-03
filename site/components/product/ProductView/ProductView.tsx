@@ -54,9 +54,9 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
           />
         </div>
 
-        {/* <section className="py-12 px-6 mb-10">
+        <section className="py-12 px-6 mb-10">
           <Badges/>
-        </section> */}
+        </section>
       </Container>
       <SEO
         title={product.name}
